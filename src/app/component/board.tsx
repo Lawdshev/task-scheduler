@@ -6,8 +6,8 @@ import { useTasks } from "@/hooks/useTasks";
 const KanbanColumn = ({ title, tasks }: { title: string; tasks: ITask[] }) => {
   const { deleteTask } = useTasks();
   return (
-    <div className="w-1/3 p-4 ">
-      <h2 className="text-2xl font-bold mb-4">{title}</h2>
+    <div className="w-full sm:w-1/2 lg:w-1/3 p-4">
+      <h2 className="text-xl sm:text-2xl font-bold mb-4">{title}</h2>
       <div className="space-y-4 max-h-[80vh] overflow-y-scroll">
         {tasks.map((task) => (
           <Task
@@ -34,7 +34,7 @@ const KanbanBoard = () => {
   const { Tasks } = useTasks();
 
   return (
-    <div className="flex">
+    <div className="flex flex-wrap">
       <KanbanColumn title="Backlog" tasks={Tasks.backlog} />
       <KanbanColumn title="In Progress" tasks={Tasks.inprogress} />
       <KanbanColumn title="Completed" tasks={Tasks.completed} />

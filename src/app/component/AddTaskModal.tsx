@@ -38,14 +38,22 @@ const AddTaskModal = ({ isOpen, onClose }: IProps) => {
       recurrenceCount: 0, // Initial recurrence count
     });
 
+    // Reset the form fields to their initial values
+    setTitle("");
+    setDescription("");
+    setTime("10:00");
+    setIsRecurring(false);
+    setRecurringFrequency({ unit: "hours", value: "1" });
+    setMaxRecurrences(1);
+
     onClose();
   };
 
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center">
-      <div className="bg-white p-6 rounded-lg shadow-lg w-1/3">
+    <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center p-4 sm:p-6 md:p-8">
+      <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md sm:max-w-lg md:max-w-xl">
         <h2 className="text-2xl font-bold mb-4 text-black">Schedule Task</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
